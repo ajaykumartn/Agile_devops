@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: calculator
-          image: yourusername/calculator-app:latest
+          image: ajaytn/calculator-app:latest
           ports:
             - containerPort: 8080
 ---
