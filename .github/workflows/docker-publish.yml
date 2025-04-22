@@ -3,7 +3,7 @@ name: Docker Build & Push
 on:
   push:
     branches:
-      - main  # Trigger this workflow only on pushes to main branch
+      - main  # Trigger this workflow only on pushes to the main branch
 
 jobs:
   build-and-push:
@@ -16,8 +16,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.ajaytn }}
-          password: ${{ secrets.Ajay12345 }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
