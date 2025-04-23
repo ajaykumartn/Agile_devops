@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: calculator
-          image: ajaytn/calculator-app:latest
+          image: ajaytn/agile-devops:latest
           ports:
             - containerPort: 8080
 ---
@@ -25,9 +25,10 @@ kind: Service
 metadata:
   name: calculator-service
 spec:
-  selector:
-    app: calculator
-  ports:
-    - port: 80
-      targetPort: 8080
   type: LoadBalancer
+  selector:
+    app: calculator   # ✅ fixed: should match pod label
+  ports:
+    - protocol: TCP
+      port: 8080       # ✅ exposed service port
+      targetPort: 8080 # ✅ matches Flask app port
